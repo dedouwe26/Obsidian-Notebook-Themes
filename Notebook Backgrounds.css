@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-              Notebook Background Color Schemes by CyanVoxel v2.2.3
+              Notebook Background Color Schemes by CyanVoxel and 0xDED  v2.2.3
 
 These a few CSS classes that mimic a few of my real-world pages and pen colors.
 Go ahead and try it out! You can change or add new color variables or entire new
@@ -25,12 +25,15 @@ https://angel-rs.github.io/css-color-filter-generator
   --pen-purple: #9b4ff0;
 
   --neutral-pen-black: #272727;
-  --neutral-pen-black-trans: #27272722;
 
   /* Page Colors */
   --page-white: #ffffff;
+  --page-white-secondary: #c5c5c5; 
   --page-manila: #f3deaf;
+  --page-manila-secondary: #b3a178; 
   --page-blue: #3f76ed;
+  --page-blue-secondary: #628be5;
+  --page-blue-grid: #2756bd;
 
   --grid-size: 32px;
 }
@@ -40,103 +43,184 @@ https://angel-rs.github.io/css-color-filter-generator
   filter: var(--image-effect);
 }
 
-/* ---------------------------- Page Backgrounds ---------------------------- */
-/* All Pages */
-.page-manila,
-.page-white,
-.page-blueprint {
-  --text-normal: var(--accent-color);
-  --text-muted: var(--accent-color);
-  --text-faint: var(--accent-color-trans);
-  --h1-color: var(--accent-color);
-  --h2-color: var(--accent-color);
-  --h3-color: var(--accent-color);
-  --h4-color: var(--accent-color);
-  --h5-color: var(--accent-color);
-  --h6-color: var(--accent-color);
+/* ---------------------------- Configuration ---------------------------- */
+/* All pages and colors */
+
+:is(
+  .page-manila,
+  .page-white,
+  .page-blueprint, 
+  .page-white,
+  .page-manila,
+  .page-blueprint,
+  .pen-white,
+  .pen-blue,
+  .pen-red,
+  .pen-green,
+  .pen-black,
+  .pen-gray,
+  .pen-purple,
+
+  .use-config
+) { /* Applies all the variables. */
+  --line-thickness: 2px;
+  --text-weight: 700;
+  --bold-weight: 800;
+  --text-color: var(--pen-black);
+  --color-theme: light;
+
+  --inline-title-color: var(--text-color);
+  --inline-title-weight: var(--bold-weight);
+
+  --metadata-label-text-color: var(--text-color);
+  --metadata-input-text-color: var(--text-color);
+
+  --tag-color: var(--text-color);
+  --tag-background: var(--secondary-color);
+  --tag-color-hover: var(--link-color);
+  --tag-background-hover: color-mix(in srgb, var(--secondary-color) 40%, transparent);
+
+  --pill-background-hover: color-mix(in srgb, var(--secondary-color) 40%, transparent);
+  --pill-color-hover: var(--link-color);
+
+  --background-modifier-border-focus: var(--text-color);
+  --background-modifier-border: var(--secondary-color);
+  --background-modifier-hover: color-mix(in srgb, var(--secondary-color) 40%, transparent);
+
+  --h1-weight: var(--bold-weight); 
+  --h2-weight: var(--text-weight);
+  --h3-weight: var(--text-weight);
+  --h4-weight: var(--text-weight);
+  --h5-weight: var(--text-weight);
+  --h6-weight: var(--text-weight);
+  --h1-color: var(--text-color);
+  --h2-color: var(--text-color);
+  --h3-color: var(--text-color);
+  --h4-color: var(--text-color);
+  --h5-color: var(--text-color);
+  --h6-color: var(--text-color);
+
+  --text-normal: var(--text-color);
+  --text-accent: var(--text-color);
+
   --link-color: var(--pen-blue);
-  --link-color-hover: var(--pen-light-blue);
+
+  --text-accent-hover: var(--link-color);
+  --font-weight: var(--text-weight);
+  --text-muted: var(--text-color);
+  --text-faint: var(--secondary-color);
+  --hr-color: var(--text-color);
+
+  --bold-color: var(--text-color);
+
+  --italic-color: var(--text-accent);
+
+  --caret-color: var(--text-color);
+
+  --collapse-icon-color-collapsed: var(--text-color);
+
+  --table-header-color: var(--text-color);
+  --table-header-weight: var(--text-weight);
+  --table-header-background: var(--secondary-color);
+  --table-header-background-hover: var(--secondary-color);
+
+  --checkbox-color: var(--text-color);
+  --checkbox-marker-color: var(--primary-color);
+  --checkbox-color-hover: var(--secondary-color);
+  --checkbox-border-color: var(--text-color);
+
+  --checklist-done-color: var(--text-color);
+
+  --list-marker-color: var(--text-color);
+
   --link-unresolved-color: var(--pen-red);
+  --link-color-hover: var(--pen-light-blue);
+  --link-weight: var(--text-weight);
+  --link-decoration: underline;
+  --link-decoration-thickness: var(--line-thickness);
 
-  --hr-color: var(--accent-color);
-  --blockquote-border-color: var(--accent-color);
-  --embed-border-left: 2px solid var(--accent-color);
-  --collapse-icon-color-collapsed: var(--accent-color);
-  --checkbox-color: var(--accent-color);
-  --checkbox-marker-color: var(--page-color);
-  --checkbox-color-hover: var(--accent-color-trans);
-  --checkbox-border-color: var(--accent-color);
-  --checklist-done-color: var(--accent-color);
-  --list-marker-color: var(--accent-color);
+  --interactive-accent: var(--text-color);
 
-  --interactive-accent: var(--accent-color);
-  --metadata-label-text-color: var(--accent-color);
-  --metadata-input-text-color: var(--accent-color);
-  --tag-color: var(--accent-color);
-  --tag-background: var(--accent-color-trans);
-  --pill-cover-hover: color-mix(in srgb, var(--accent-color) 60%, transparent);
-  --background-modifier-border-focus: var(--accent-color);
-  --background-modifier-border: var(--accent-color-trans);
-  --background-modifier-hover: color-mix(
-    in srgb,
-    var(--accent-color) 60%,
-    transparent
-  );
+  --blockquote-border-color: var(--text-color);
+  --blockquote-border-thickness: var(--line-thickness);
+  --blockquote-background-color: var(--secondary-color);
 
-  color: var(--accent-color);
-  background-color: var(--page-color);
-  font-weight: bold;
+  --embed-border-left: 2px solid var(--text-color);
+
+  font-weight: var(--font-weight);
+  color: var(--text-normal);
+  caret-color: var(--caret-color);
+  background-color: var(--primary-color);
+
+  color-scheme: var(--color-theme);
+}
+
+/* Applies the primary color as a background color to the embeds. Previously: embed-blueprint, embed-manila, embed-white.*/
+.embed img {
+  background-color: var(--primary-color);
+}
+
+:is(
+  .page-manila,
+  .page-white,
+  .page-blueprint
+) .metadata-container { /* The properties outline. */
+  border: var(--line-thickness) solid var(--secondary-color);
+  border-radius: 20px;
+}
+:is(
+  .page-manila,
+  .page-white,
+  .page-blueprint
+) blockquote { /* The smooth blockquotes. */
+  border-radius: 0 10px 10px 0;
+}
+:is(
+  .page-manila,
+  .page-white,
+  .page-blueprint
+) b,strong { /* The bold font weight . */
+  font-weight: var(--bold-weight);
+}
+
+:is(.page-white, .page-manila, .page-blueprint) {
+  --metadata-input-background-active: var(--secondary-color);
 }
 
 /* ----------------------- Manila/Tan Page Background ----------------------- */
 /* Defaults to Black Pen */
-.page-manila {
-  --page-color: var(--page-manila);
-  --accent-color: var(--pen-black);
-  --accent-color-trans: color-mix(
-    in srgb,
-    var(--accent-color) 15%,
-    transparent
-  );
-  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
-    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
-  color-scheme: light;
-}
-.embed-manila img {
-  background-color: var(--page-manila);
+.page-manila { 
+  --line-thickness: 2px;
+  --text-weight: 700;
+  --bold-weight: 800;
+  --primary-color: var(--page-manila);
+  --secondary-color: var(--page-manila-secondary) !important;
+
+  --text-highlight-bg: #8cff6466;
 }
 
 /* --------------------------- White Page Background ------------------------ */
 /* Defaults to Black Pen */
 .page-white {
-  --page-color: var(--page-white);
-  --accent-color: var(--neutral-pen-black);
-  --accent-color-trans: color-mix(
-    in srgb,
-    var(--accent-color) 15%,
-    transparent
-  );
-  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
-    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
-  color-scheme: light;
-}
-.embed-white img {
-  background-color: var(--page-white);
+  --line-thickness: 2px;
+  --text-weight: 700;
+  --bold-weight: 800;
+  --primary-color: var(--page-white);
+  --text-color: var(--neutral-pen-black) !important;
+  --secondary-color: var(--page-white-secondary) !important;
 }
 
 /* -------------------------- Blueprint Styled Page ------------------------- */
 /* Defaults to White Pen */
 .page-blueprint {
-  --page-color: var(--page-blue);
-  --accent-color: var(--pen-white);
-  --accent-color-trans: color-mix(
-    in srgb,
-    var(--accent-color) 15%,
-    transparent
-  );
-  --image-effect: brightness(0) saturate(100%) invert(89%) sepia(1%)
-    saturate(2714%) hue-rotate(196deg) brightness(107%) contrast(98%);
+  --line-thickness: 2px;
+  --text-weight: 700;
+  --bold-weight: 800;
+  --primary-color: var(--page-blue);
+  /* --text-color: var(--pen-white); Set in down below. */
+  --secondary-color: var(--page-blue-secondary) !important;
   color-scheme: dark;
+  --grid-color: var(--page-blue-grid) !important;
 
   --link-color: color-mix(in srgb, var(--pen-light-blue) 60%, var(--pen-white));
   --link-color-hover: color-mix(
@@ -145,24 +229,22 @@ https://angel-rs.github.io/css-color-filter-generator
     var(--pen-white)
   );
 }
-.embed-blueprint img {
-  background-color: var(--page-blue);
-}
 
 /* Adds a grid layout on page background */
 .page-grid {
+  --grid-color: var(--secondary-color);
   background-image: linear-gradient(
       0deg,
       transparent 0px,
-      var(--accent-color-trans) 1px,
-      var(--accent-color-trans) 2px,
+      var(--grid-color) 1px,
+      var(--grid-color) 2px,
       transparent 3px
     ),
     linear-gradient(
       90deg,
       transparent calc(var(--grid-size) - 3px),
-      var(--accent-color-trans) calc(var(--grid-size) - 2px),
-      var(--accent-color-trans) calc(var(--grid-size) - 1px),
+      var(--grid-color) calc(var(--grid-size) - 2px),
+      var(--grid-color) calc(var(--grid-size) - 1px),
       transparent var(--grid-size)
     );
   background-size: var(--grid-size) var(--grid-size);
@@ -186,86 +268,76 @@ https://angel-rs.github.io/css-color-filter-generator
     .pen-purple
   )
   svg {
-  color: color-mix(in srgb, var(--accent-color) 60%, transparent);
+  color: color-mix(in srgb, var(--text-color) 80%, transparent);
 }
 
 /* Code Blocks */
 :is(.page-white, .page-manila, .page-blueprint) :is(code,
 .HyperMD-codeblock, .cm-inline-code) {
-  --code-normal: var(--accent-color);
+  --code-normal: var(--text-color);
   --code-background: color-mix(
     in srgb,
-    var(--page-color) 80%,
+    var(--primary-color) 80%,
     black
   ) !important;
 }
 div > pre {
   --code-background: color-mix(
     in srgb,
-    var(--page-color) 80%,
+    var(--primary-color) 80%,
     black
   ) !important;
 }
 
-:is(.page-white, .page-manila, .page-blueprint) {
-  --metadata-input-background-active: var(--accent-color-trans);
-}
-
 /* ------------------------------- Pen Colors ------------------------------- */
 
-.pen-white {
-  --accent-color: var(--pen-white);
-  --accent-color-trans: color-mix(in srgb, var(--pen-white) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+.pen-white, .page-blueprint {
+  --text-color: var(--pen-white);
+  --secondary-color: color-mix(in srgb, var(--pen-white) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(89%) sepia(1%)
     saturate(2714%) hue-rotate(196deg) brightness(107%) contrast(98%);
 }
 .pen-blue {
-  --accent-color: var(--pen-blue);
-  --accent-color-trans: color-mix(in srgb, var(--pen-blue) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+  --text-color: var(--pen-blue);
+  --link-color: color-mix(in srgb, var(--pen-light-blue) 60%, var(--pen-white));
+  --secondary-color: color-mix(in srgb, var(--pen-blue) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(36%) sepia(95%)
     saturate(945%) hue-rotate(199deg) brightness(95%) contrast(95%);
 }
 .pen-red {
-  --accent-color: var(--pen-red);
-  --accent-color-trans: color-mix(in srgb, var(--pen-red) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+  --text-color: var(--pen-red);
+  --secondary-color: color-mix(in srgb, var(--pen-red) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(40%) sepia(41%)
     saturate(1024%) hue-rotate(316deg) brightness(99%) contrast(94%);
 }
 .pen-green {
-  --accent-color: var(--pen-green);
-  --accent-color-trans: color-mix(in srgb, var(--pen-green) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+  --text-color: var(--pen-green);
+  --secondary-color: color-mix(in srgb, var(--pen-green) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(52%) sepia(60%)
     saturate(2521%) hue-rotate(105deg) brightness(96%) contrast(84%);
 }
-.pen-black {
-  --accent-color: var(--pen-black);
-  --accent-color-trans: color-mix(in srgb, var(--pen-black) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+.pen-black, .page-manila, .pen-black {
+  --text-color: var(--pen-black);
+  --secondary-color: color-mix(in srgb, var(--pen-black) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
     saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
 }
 .pen-gray {
-  --accent-color: var(--pen-gray);
-  --accent-color-trans: color-mix(in srgb, var(--pen-gray) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+  --text-color: var(--pen-gray);
+  --secondary-color: color-mix(in srgb, var(--pen-gray) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(35%) sepia(13%)
     saturate(189%) hue-rotate(5deg) brightness(96%) contrast(86%);
 }
 .pen-purple {
-  --accent-color: var(--pen-purple);
-  --accent-color-trans: color-mix(in srgb, var(--pen-purple) 15%, transparent);
-  color: var(--accent-color);
-  --hr-color: var(--accent-color);
+  --text-color: var(--pen-purple);
+  --secondary-color: color-mix(in srgb, var(--pen-purple) 15%, transparent);
+  color: var(--text-color);
   --image-effect: brightness(0) saturate(100%) invert(33%) sepia(59%)
     saturate(2620%) hue-rotate(249deg) brightness(98%) contrast(93%);
 }
