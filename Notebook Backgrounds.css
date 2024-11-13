@@ -320,7 +320,7 @@ div > pre {
   --image-effect: brightness(0) saturate(100%) invert(52%) sepia(60%)
     saturate(2521%) hue-rotate(105deg) brightness(96%) contrast(84%);
 }
-.pen-black, .page-manila, .pen-black {
+.pen-black, .page-manila, .page-white {
   --text-color: var(--pen-black);
   --secondary-color: color-mix(in srgb, var(--pen-black) 15%, transparent);
   color: var(--text-color);
