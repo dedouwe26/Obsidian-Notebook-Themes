@@ -124,6 +124,9 @@ https://angel-rs.github.io/css-color-filter-generator
   --table-header-background: var(--secondary-color);
   --table-header-background-hover: var(--secondary-color);
 
+  --indentation-guide-color: var(--text-color);
+  --indentation-guide-width: var(--line-thickness);
+
   --checkbox-color: var(--text-color);
   --checkbox-marker-color: var(--primary-color);
   --checkbox-color-hover: var(--secondary-color);
@@ -163,7 +166,9 @@ https://angel-rs.github.io/css-color-filter-generator
 :is(
   .page-manila,
   .page-white,
-  .page-blueprint
+  .page-blueprint,
+
+  .use-config
 ) .metadata-container { /* The properties outline. */
   border: var(--line-thickness) solid var(--secondary-color);
   border-radius: 20px;
@@ -171,19 +176,23 @@ https://angel-rs.github.io/css-color-filter-generator
 :is(
   .page-manila,
   .page-white,
-  .page-blueprint
+  .page-blueprint,
+
+  .use-config
 ) blockquote { /* The smooth blockquotes. */
   border-radius: 0 10px 10px 0;
 }
 :is(
   .page-manila,
   .page-white,
-  .page-blueprint
+  .page-blueprint,
+
+  .use-config
 ) b,strong { /* The bold font weight . */
   font-weight: var(--bold-weight);
 }
 
-:is(.page-white, .page-manila, .page-blueprint) {
+:is(.page-white, .page-manila, .page-blueprint, .use-config) {
   --metadata-input-background-active: var(--secondary-color);
 }
 
