@@ -1,3 +1,6 @@
+```
+⚠️ Archived in favor of [Papyrus](https://github.com/dedouwe26/Papyrus)!
+```
 # Obsidian-Notebook-Themes v2.3.0
 ## A Series of Notebook Theme CSS Snippets for Obsidian.
 These a few CSS classes that mimic a few of my real-world notebook pages and pen colors.
